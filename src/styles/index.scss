@@ -1,0 +1,20 @@
+@import './variables';
+@import './mixins';
+@import './components/header'; // Asegúrate de que esta importación sea correcta
+@import './components/main';
+
+.App {
+  display: grid;
+  grid-template-columns: 1fr; /* Crea una sola columna */
+  grid-template-rows: auto 1fr; /* Fila para el header y una fila para el main */
+  min-height: 100vh;
+  padding: 10px;
+}
+
+.header {
+  grid-row: 1; /* El header en la primera fila */
+}
+
+.main {
+  grid-row: 2; /* El main en la segunda fila */
+}
