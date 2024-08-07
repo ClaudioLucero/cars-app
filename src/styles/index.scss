@@ -1,7 +1,8 @@
 @import './variables';
 @import './mixins';
-@import './components/header'; // Asegúrate de que esta importación sea correcta
+@import './components/header'; 
 @import './components/main';
+@import './components/card';
 
 .App {
   display: grid;
@@ -17,4 +18,12 @@
 
 .main {
   grid-row: 2; /* El main en la segunda fila */
+}
+.footer {
+  height: 50px;
+  background-color: #000000; // Color de fondo negro
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
 }
