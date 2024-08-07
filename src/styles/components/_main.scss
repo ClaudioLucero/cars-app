@@ -1,5 +1,113 @@
 .main {
-  background-color: #ffffff;
   padding: 1rem;
-  grid-column: 1 / -1; /* Asegura que el main ocupe toda la fila */
+  box-sizing: border-box;
+
+  &__title {
+    text-align: left;
+    margin-bottom: 38px;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 57px;
+    font-size: 25px;
+    font-weight: 700;
+    color: #191919;
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+    padding: 5px;
+    border-bottom: 1px solid #cccccc;
+
+    .main__menu-item {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #191919;
+    }
+
+    .main__tabs {
+      display: flex;
+      width: 541px;
+      height: 31px;
+      margin-left: 41px;
+      align-items: center;
+
+      .tab-button {
+        background: #ffffff;
+        padding: 0.5rem 1rem;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        color: #191919;
+        width: auto;
+        gap: 60px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        border: none;
+        border-radius: 22px;
+
+        &:hover {
+          background-color: #F7F7F7;
+        }
+      }
+    }
+
+    .main__sort {
+      display: flex;
+      align-items: center;
+      margin-left: auto; /* Empuja el menú 'Ordenar por' al extremo derecho */
+
+      span {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        color: #191919;
+      }
+    }
+  }
+
+  &__gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+
+    &-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 269px;
+        height: 215px;
+        object-fit: cover;
+      }
+    }
+  }
+
+  // Estilos para pantallas móviles
+  @media (max-width: $width-mobile) {
+    &__menu {
+      .main__tabs {
+        display: none; // Oculta las pestañas en pantallas móviles
+      }
+
+      .main__menu-item {
+        margin-right: 10rem; // Ajusta el espaciado si es necesario
+      }
+
+      .main__sort {
+        margin-left: 0;
+        span {
+          font-size: 16px; // Ajusta el tamaño de la fuente si es necesario
+        }
+      }
+    }
+
+    &__gallery {
+      grid-template-columns: 1fr; // Muestra una columna en pantallas móviles
+      grid-template-rows: repeat(3, auto); // Ajusta el número de filas según sea necesario
+    }
+  }
 }

@@ -20,7 +20,7 @@ const Header: React.FC = () => {
         </ul>
       </nav>
       <div className="header__menu">
-      <span className="header__menu-text">Menú</span>
+        <span className="header__menu-text">Menú</span>
         <button className="menu-button">
           <img src={Group} alt="Menu" />
         </button>

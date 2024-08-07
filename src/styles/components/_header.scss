@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-between;
   background-color: white;
-  border-bottom: 1px solid #CCCCCC;
+  border-bottom: 1px solid #cccccc;
   font-family: 'Montserrat', sans-serif;
   color: #191919;
   width: 100%;
@@ -37,7 +37,7 @@
 
 .header__nav a {
   text-decoration: none;
-  color: #191919; 
+  color: #191919;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   font-weight: 600;
@@ -74,29 +74,29 @@
   }
 
   .header__nav {
-    display: none; 
+    display: none;
   }
 
   .header__logo {
     flex: 1;
-    text-align: left; 
+    text-align: left;
   }
 
   .header__menu {
     flex: 1;
     display: flex;
-    justify-content: flex-end; 
+    justify-content: flex-end;
   }
 
-  .header__menu-text{
-    display: none; 
+  .header__menu-text {
+    display: none;
   }
   .menu-button {
-    height: 30px; 
+    height: 30px;
   }
 
   .header__logo img {
-    width: 30px; 
+    width: 30px;
     height: 30px;
   }
 }
