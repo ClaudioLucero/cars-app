@@ -49,7 +49,7 @@
         border-radius: 22px;
 
         &:hover {
-          background-color: #F7F7F7;
+          background-color: #f7f7f7;
         }
       }
     }
@@ -70,8 +70,9 @@
 
   &__gallery {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajuste de columnas responsivo */
     gap: 1rem;
+    position: relative; /* Asegura que el Loader se posicione correctamente */
 
     &-item {
       display: flex;
@@ -79,8 +80,9 @@
       align-items: center;
 
       img {
-        width: 269px;
-        height: 215px;
+        width: 100%; /* Asegura que la imagen ocupe todo el espacio del contenedor */
+        height: auto; /* Mantiene la proporción de la imagen */
+        max-height: 215px; /* Limita la altura máxima */
         object-fit: cover;
       }
     }
@@ -107,7 +109,7 @@
 
     &__gallery {
       grid-template-columns: 1fr; // Muestra una columna en pantallas móviles
-      grid-template-rows: repeat(3, auto); // Ajusta el número de filas según sea necesario
+      grid-template-rows: repeat(auto-fit, minmax(250px, auto)); // Ajusta las filas para pantallas móviles
     }
   }
 }

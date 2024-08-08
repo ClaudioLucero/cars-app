@@ -1,8 +1,9 @@
 @import './variables';
 @import './mixins';
-@import './components/header'; 
+@import './components/header';
 @import './components/main';
 @import './components/card';
+@import './components/loader';
 
 .App {
   display: grid;
