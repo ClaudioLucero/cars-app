@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import '../styles/index.scss';
+import { Car } from '../types/car';
 import Loader from './Loader'; 
 import Card from './Card'; 
 
+import '../styles/index.scss';
+
 const Main: React.FC = () => {
-  const [cars, setCars] = useState<any[]>([]);
+  const [cars, setCars] = useState<Car[]>([]);
   const [loading, setLoading] = useState<boolean>(true); 
 
   useEffect(() => {

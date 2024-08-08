@@ -1,6 +1,7 @@
+import { Car } from '../types/car';
 const API_URL = 'https://challenge.egodesign.dev/api/models/';
 
-export const fetchCars = async (): Promise<any[]> => {
+export const fetchCars = async (): Promise<Car[]> => {
   try {
     const response = await fetch(API_URL);
     if (!response.ok) {
