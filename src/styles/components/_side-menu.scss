@@ -2,14 +2,17 @@
   position: fixed;
   top: 0;
   right: 0;
-  width: 320px; 
+  width: 320px;
   height: 100%;
   background-color: #fff;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
   transform: translateX(100%);
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    visibility 0.3s ease;
   z-index: 1000;
 
   &.open {
@@ -41,7 +44,7 @@
     }
 
     &:last-of-type {
-      background-color: #EFEEEF; // Color de fondo para el segundo contenedor
+      background-color: #efeeef; // Color de fondo para el segundo contenedor
       margin-top: 30px; // Empuja el contenedor hacia abajo
       padding-top: 33px;
     }
@@ -64,7 +67,7 @@
           line-height: 17px;
           font-weight: 400;
           color: #191919;
-          text-decoration: none; 
+          text-decoration: none;
           cursor: pointer;
         }
       }
@@ -72,7 +75,7 @@
       .separator {
         width: 90%;
         height: 0.1px;
-        background-color: #D1D1D1;
+        background-color: #d1d1d1;
         margin: 10px 20px; // Ajusta el espacio alrededor de la línea
       }
     }
@@ -89,7 +92,7 @@
     border: none;
     background: none;
     cursor: pointer;
-    
+
     // Alinea el texto y el ícono
     .side-menu__close-text {
       font-size: 16px;
@@ -104,7 +107,7 @@
   &__footer {
     width: 281px;
     height: 350px;
-    background-color: #EFEEEF;
+    background-color: #efeeef;
     margin-bottom: unset;
     margin-right: 121px;
   }
@@ -119,7 +122,9 @@
   background-color: rgba(0, 0, 0, 0.5); // Fondo oscuro con opacidad
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
   z-index: 999;
 
   &.open {
@@ -144,7 +149,7 @@
     top: 20px;
     right: 20px;
     font-size: 24px;
-    
+
     .side-menu__close-text {
       font-size: 16px;
       margin-right: 8px; // Espacio entre el texto y el ícono
@@ -159,5 +164,4 @@
     width: 100vw;
     height: 100vh;
   }
-  
 }
