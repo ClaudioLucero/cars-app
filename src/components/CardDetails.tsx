@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Car } from '../types/car';
+import { CarDetail } from '../types/carDetail'; // Importa el tipo correcto
 import Loader from './Loader';
 import { fetchCarDetails } from '../services/cardService';
 import '../styles/index.scss';
 
 const CarDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const [car, setCar] = useState<Car | null>(null);
+  const [car, setCar] = useState<CarDetail | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const navigate = useNavigate();
 
@@ -56,7 +56,25 @@ const CarDetails: React.FC = () => {
       <img src={car.thumbnail} alt={car.name} />
       <p>Año: {car.year}</p>
       <p>Precio: ${car.price}</p>
-      {/* Agrega más detalles según sea necesario */}
+      <h3>Descripción</h3>
+      <div dangerouslySetInnerHTML={{ __html: car.description }} />
+      <h3>Características</h3>
+      <ul>
+        {car.model_features.map((feature, index) => (
+          <li key={index}>
+            <img src={feature.image} alt={feature.name} />
+            <strong>{feature.name}:</strong> {feature.description}
+          </li>
+        ))}
+      </ul>
+      <h3>Destacados</h3>
+      {car.model_highlights.map((highlight, index) => (
+        <div key={index}>
+          <h4>{highlight.title}</h4>
+          <div dangerouslySetInnerHTML={{ __html: highlight.content }} />
+          <img src={highlight.image} alt={highlight.title} />
+        </div>
+      ))}
     </div>
   );
 };
