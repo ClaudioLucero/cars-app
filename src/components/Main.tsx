@@ -10,6 +10,8 @@ const Main: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [menuOpen, setMenuOpen] = useState<boolean>(false); // Estado para el menú desplegable
   const [filterMenuOpen, setFilterMenuOpen] = useState<boolean>(false);
+  const [selectedFilter, setSelectedFilter] = useState<string>('Todos');
+  const [sortOption, setSortOption] = useState<string>('Nada'); // Estado para la opción de ordenación
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,8 +34,47 @@ const Main: React.FC = () => {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
   const toggleFilterMenu = () => {
     setFilterMenuOpen(!filterMenuOpen);
+  };
+
+  const handleFilterChange = (filter: string) => {
+    setSelectedFilter(filter);
+    setFilterMenuOpen(false);
+  };
+
+  const handleSortChange = (option: string) => {
+    setSortOption(option);
+    setMenuOpen(false);
+  };
+
+  // Filtrar autos según el filtro seleccionado
+  const filteredCars = () => {
+    switch (selectedFilter) {
+      case 'Autos':
+        return cars.filter(car => car.segment === 'Hatchback' || car.segment === 'Sedan');
+      case 'Todos':
+        return cars;
+      default:
+        return cars.filter(car => car.segment === selectedFilter);
+    }
+  };
+
+  // Ordenar autos según la opción seleccionada
+  const sortedCars = () => {
+    switch (sortOption) {
+      case 'De menor a mayor precio':
+        return [...filteredCars()].sort((a, b) => a.price - b.price);
+      case 'De mayor a menor precio':
+        return [...filteredCars()].sort((a, b) => b.price - a.price);
+      case 'Más nuevos primero':
+        return [...filteredCars()].sort((a, b) => b.year - a.year);
+      case 'Más viejos primero':
+        return [...filteredCars()].sort((a, b) => a.year - b.year);
+      default:
+        return filteredCars();
+    }
   };
 
   return (
@@ -55,20 +96,58 @@ const Main: React.FC = () => {
           />
           {filterMenuOpen && (
             <div className="filter-menu">
-              <button className="filter-menu-item">Todos</button>
-              <button className="filter-menu-item">Autos</button>
-              <button className="filter-menu-item">
+              <button
+                className={`filter-menu-item ${selectedFilter === 'Todos' ? 'active' : ''}`}
+                onClick={() => handleFilterChange('Todos')}
+              >
+                Todos
+              </button>
+              <button
+                className={`filter-menu-item ${selectedFilter === 'Autos' ? 'active' : ''}`}
+                onClick={() => handleFilterChange('Autos')}
+              >
+                Autos
+              </button>
+              <button
+                className={`filter-menu-item ${selectedFilter === 'Pickups y Comerciales' ? 'active' : ''}`}
+                onClick={() => handleFilterChange('Pickups y Comerciales')}
+              >
                 Pickups y Comerciales
               </button>
-              <button className="filter-menu-item">SUVs y Crossovers</button>
+              <button
+                className={`filter-menu-item ${selectedFilter === 'SUVs' ? 'active' : ''}`}
+                onClick={() => handleFilterChange('SUVs')}
+              >
+                SUVs Crossovers
+              </button>
             </div>
           )}
         </div>
         <div className="main__tabs">
-          <button className="tab-button">Todos</button>
-          <button className="tab-button">Autos</button>
-          <button className="tab-button">Pickups y Comerciales</button>
-          <button className="tab-button">SUVs Crossovers</button>
+          <button
+            className={`tab-button ${selectedFilter === 'Todos' ? 'active' : ''}`}
+            onClick={() => handleFilterChange('Todos')}
+          >
+            Todos
+          </button>
+          <button
+            className={`tab-button ${selectedFilter === 'Autos' ? 'active' : ''}`}
+            onClick={() => handleFilterChange('Autos')}
+          >
+            Autos
+          </button>
+          <button
+            className={`tab-button ${selectedFilter === 'Pickups y Comerciales' ? 'active' : ''}`}
+            onClick={() => handleFilterChange('Pickups y Comerciales')}
+          >
+            Pickups y Comerciales
+          </button>
+          <button
+            className={`tab-button ${selectedFilter === 'SUVs' ? 'active' : ''}`}
+            onClick={() => handleFilterChange('SUVs')}
+          >
+            SUVs Crossovers
+          </button>
         </div>
         <div className="main__sort">
           <span>Ordenar por</span>
@@ -80,15 +159,36 @@ const Main: React.FC = () => {
           />
           {menuOpen && (
             <div className="sort-menu">
-              <button className="sort-menu-item">Nada</button>
-              <button className="sort-menu-item">
+              <button
+                className={`sort-menu-item ${sortOption === 'Nada' ? 'active' : ''}`}
+                onClick={() => handleSortChange('Nada')}
+              >
+                Nada
+              </button>
+              <button
+                className={`sort-menu-item ${sortOption === 'De menor a mayor precio' ? 'active' : ''}`}
+                onClick={() => handleSortChange('De menor a mayor precio')}
+              >
                 De menor a mayor precio
               </button>
-              <button className="sort-menu-item">
+              <button
+                className={`sort-menu-item ${sortOption === 'De mayor a menor precio' ? 'active' : ''}`}
+                onClick={() => handleSortChange('De mayor a menor precio')}
+              >
                 De mayor a menor precio
               </button>
-              <button className="sort-menu-item">Más nuevos primero</button>
-              <button className="sort-menu-item">Más viejos primero</button>
+              <button
+                className={`sort-menu-item ${sortOption === 'Más nuevos primero' ? 'active' : ''}`}
+                onClick={() => handleSortChange('Más nuevos primero')}
+              >
+                Más nuevos primero
+              </button>
+              <button
+                className={`sort-menu-item ${sortOption === 'Más viejos primero' ? 'active' : ''}`}
+                onClick={() => handleSortChange('Más viejos primero')}
+              >
+                Más viejos primero
+              </button>
             </div>
           )}
         </div>
@@ -101,7 +201,7 @@ const Main: React.FC = () => {
             <Loader /> {/* Muestra el Loader solo dentro de main__gallery */}
           </div>
         ) : (
-          cars.map((item) => (
+          sortedCars().map((item) => (
             <Card
               key={item.id}
               name={item.name}

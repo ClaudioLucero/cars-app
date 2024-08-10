@@ -17,7 +17,7 @@
     align-items: center;
     margin-bottom: 2rem;
     gap: 1rem;
-    padding: 5px;
+    padding: 11px;
     border-bottom: 1px solid #cccccc;
 
     .main__menu-item {
@@ -34,6 +34,7 @@
         width: 11px;
         display: none; // Oculta el ícono por defecto
       }
+
       .filter-menu {
         position: absolute;
         width: 124px;
@@ -45,10 +46,9 @@
         z-index: 10;
         margin-left: -5px;
         display: none; /* Oculta el menú por defecto */
-        
-        /* Ajusta el padding del contenedor del menú para que los ítems estén pegados a la izquierda */
         padding: 0;
-        
+        box-sizing: border-box;
+
         .filter-menu-item {
           padding: 0.5rem 1rem;
           font-family: 'Montserrat', sans-serif;
@@ -58,11 +58,12 @@
           border: none;
           cursor: pointer;
           transition: background-color 0.3s ease;
-          text-align: left; /* Alinea el texto de los ítems a la izquierda */
-      
-          /* Agrega un borde inferior para separar visualmente los ítems si lo deseas */
-        
-      
+          text-align: left;
+
+          &.active {
+            background-color: #e0e0e0; /* Color de fondo para el botón activo */
+          }
+
           &:hover {
             background-color: #f7f7f7;
           }
@@ -72,10 +73,11 @@
 
     .main__tabs {
       display: flex;
-      width: 541px;
+      width: auto;
       height: 31px;
       margin-left: 41px;
       align-items: center;
+      gap: 0.5rem; /* Ajusta el espaciado entre botones */
 
       .tab-button {
         background: #ffffff;
@@ -84,12 +86,15 @@
         font-size: 14px;
         font-weight: 400;
         color: #191919;
-        width: auto;
-        gap: 60px;
         cursor: pointer;
         transition: background-color 0.3s ease;
         border: none;
         border-radius: 22px;
+        border: 2px solid transparent; /* Borde para seleccionar */
+
+        &.active {
+          background-color: #e0e0e0; /* Color de fondo para el botón activo */
+        }
 
         &:hover {
           background-color: #f7f7f7;
@@ -100,7 +105,7 @@
     .main__sort {
       display: flex;
       align-items: center;
-      margin-left: auto; /* Empuja el menú 'Ordenar por' al extremo derecho */
+      margin-left: auto;
       position: relative;
 
       span {
@@ -112,15 +117,14 @@
 
       .sort-icon {
         margin-left: 8px;
-        width: 11px; /* Ajusta el tamaño según sea necesario */
+        width: 11px;
         cursor: pointer;
       }
 
       .sort-menu {
         position: absolute;
-        align-items: flex-start;
         width: 186px;
-        height: 158px;
+        height: auto;
         top: 29px;
         right: -6px;
         background: #ffffff;
@@ -141,6 +145,9 @@
           cursor: pointer;
           transition: background-color 0.3s ease;
 
+          &.active {
+            background-color: #e0e0e0; /* Color de fondo para el botón activo */
+          }
           &:hover {
             background-color: #f7f7f7;
           }
@@ -151,12 +158,9 @@
 
   &__gallery {
     display: grid;
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(250px, 1fr)
-    ); /* Ajuste de columnas responsivo */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1rem;
-    position: relative; /* Asegura que el Loader se posicione correctamente */
+    position: relative;
 
     &-item {
       display: flex;
@@ -164,15 +168,14 @@
       align-items: center;
 
       img {
-        width: 100%; /* Asegura que la imagen ocupe todo el espacio del contenedor */
-        height: auto; /* Mantiene la proporción de la imagen */
-        max-height: 215px; /* Limita la altura máxima */
+        width: 100%;
+        height: auto;
+        max-height: 215px;
         object-fit: cover;
       }
     }
   }
 
-  // Estilos para pantallas móviles
   @media (max-width: $width-mobile) {
     &__menu {
       .main__tabs {
@@ -180,7 +183,7 @@
       }
 
       .main__menu-item {
-        margin-right: 10rem; // Ajusta el espaciado si es necesario
+        margin-right: 10rem;
 
         .filter-icon {
           display: block; // Muestra el ícono en pantallas móviles
@@ -192,10 +195,7 @@
 
       .main__sort {
         span {
-          font-size: 16px; // Ajusta el tamaño de la fuente si es necesario
-        }
-        .sort-info {
-          display: none; // Oculta el nuevo elemento en pantallas móviles si es necesario
+          font-size: 16px;
         }
         .sort-menu {
           top: 43px;
@@ -205,10 +205,7 @@
 
     &__gallery {
       grid-template-columns: 1fr; // Muestra una columna en pantallas móviles
-      grid-template-rows: repeat(
-        auto-fit,
-        minmax(250px, auto)
-      ); // Ajusta las filas para pantallas móviles
+      grid-template-rows: repeat(auto-fit, minmax(250px, auto));
     }
   }
 }
