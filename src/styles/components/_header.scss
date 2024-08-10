@@ -31,12 +31,14 @@
   line-height: 17.07px;
   text-align: left;
   border-bottom: 2px solid transparent; // Añadido para el efecto de borde
-  transition: color 0.3s, border-bottom 0.3s;
+  transition:
+    color 0.3s,
+    border-bottom 0.3s;
 }
 
 .header__nav a.active-link {
-  color: #EB0A1E;
-  border-bottom: 2px solid #EB0A1E;
+  color: #eb0a1e;
+  border-bottom: 2px solid #eb0a1e;
 }
 
 .header__nav ul {

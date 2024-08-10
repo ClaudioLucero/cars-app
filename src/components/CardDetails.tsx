@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Car } from '../types/car';
 import Loader from './Loader';
+import { fetchCarDetails } from '../services/cardService';
 import '../styles/index.scss';
 
 const CarDetails: React.FC = () => {
@@ -11,41 +12,40 @@ const CarDetails: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchCarDetails = async () => {
-      if (!id) {
-        // Si el id no está presente, redirige a la página principal
-        navigate('/');
+    const getCarDetails = async () => {
+      if (!id || id.trim() === '') {
+        // Si el id no está presente o es una cadena vacía, redirige a la página principal
+        setLoading(false); // Deja de cargar si no hay id
+        navigate('/'); // Redirige a la página principal
         return;
       }
 
-      try {
-        const response = await fetch(`https://challenge.egodesign.dev/api/models/${id}`);
-        if (!response.ok) {
-          throw new Error('Car not found');
-        }
-        const data = await response.json();
-        setCar(data);
-      } catch (error) {
-        console.error('Error fetching car details:', error);
+      const carData = await fetchCarDetails(id);
+
+      if (carData) {
+        setCar(carData);
+      } else {
         setCar(null); // Configura car como null en caso de error
-      } finally {
-        setLoading(false);
       }
+
+      setLoading(false);
     };
 
-    fetchCarDetails();
+    getCarDetails();
   }, [id, navigate]);
 
   if (loading) {
     return <Loader />;
   }
 
-  if (!car || !id) {
+  if (!car) {
     return (
       <div className="car-details">
         <h2>Detalles del Auto</h2>
         <p>Selecciona un auto en la página principal para visualizarlo.</p>
-        <button onClick={() => navigate('/')}>Volver a la Página Principal</button>
+        <button onClick={() => navigate('/')}>
+          Volver a la Página Principal
+        </button>
       </div>
     );
   }

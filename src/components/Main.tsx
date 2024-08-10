@@ -53,11 +53,13 @@ const Main: React.FC = () => {
   const filteredCars = () => {
     switch (selectedFilter) {
       case 'Autos':
-        return cars.filter(car => car.segment === 'Hatchback' || car.segment === 'Sedan');
+        return cars.filter(
+          (car) => car.segment === 'Hatchback' || car.segment === 'Sedan'
+        );
       case 'Todos':
         return cars;
       default:
-        return cars.filter(car => car.segment === selectedFilter);
+        return cars.filter((car) => car.segment === selectedFilter);
     }
   };
 

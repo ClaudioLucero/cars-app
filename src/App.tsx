@@ -13,8 +13,9 @@ const App: React.FC = () => {
         <Header />
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/home" element={<Navigate to="/" />} /> {/* Redirige /home a / */}
-          <Route path="/car/:id" element={<CarDetails />} /> {/* Ruta para los detalles del auto */}
+          <Route path="/home" element={<Navigate to="/" />} />
+          <Route path="/car/:id" element={<CarDetails />} />
+          <Route path="*" element={<Navigate to="/" />} /> {/* Redirige cualquier otra ruta a / */}
         </Routes>
         <Footer />
       </div>
