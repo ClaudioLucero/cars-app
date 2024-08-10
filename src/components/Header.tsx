@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import '../styles/index.scss';
 import SideMenu from '../components/SideMenu';
 import Logo from '../assets/Logo.svg';
@@ -6,6 +7,7 @@ import Group from '../assets/Group.svg';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -14,6 +16,11 @@ const Header: React.FC = () => {
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
+
+  const getNavLinkClass = (path: string) => {
+    return location.pathname === path ? 'active-link' : '';
+  };
+
   return (
     <>
       <header className="header">
@@ -23,10 +30,15 @@ const Header: React.FC = () => {
         <nav className="header__nav">
           <ul>
             <li>
-              <a href="#modelos">Modelos</a>
+              <Link to="/" className={getNavLinkClass('/')}>Modelos</Link>
             </li>
             <li>
-              <a href="#ficha-modelo">Ficha de Modelo</a>
+              <Link 
+                to={`/car/${location.state?.carId || ''}`} 
+                className={getNavLinkClass(`/car/${location.state?.carId || ''}`)}
+              >
+                Ficha de Modelo
+              </Link>
             </li>
           </ul>
         </nav>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Car } from '../types/car';
+import { Car } from '../types/car'; // Ajusta la ruta según sea necesario
 import Loader from './Loader';
 import Card from './Card';
 import FilterIcon from '../assets/StayBlack.svg'; // Ajusta la ruta según sea necesario
@@ -79,7 +79,7 @@ const Main: React.FC = () => {
 
   return (
     <main className="main">
-      {/*  Título */}
+      {/* Título */}
       <section className="main__title">
         <h1>Descubrí todos los modelos</h1>
       </section>
@@ -201,9 +201,10 @@ const Main: React.FC = () => {
             <Loader /> {/* Muestra el Loader solo dentro de main__gallery */}
           </div>
         ) : (
-          sortedCars().map((item) => (
+          sortedCars().map((item: Car) => (
             <Card
               key={item.id}
+              id={item.id} // El id se pasa como número, que es el tipo esperado en el componente Card
               name={item.name}
               year={item.year}
               price={item.price}
