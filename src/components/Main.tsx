@@ -4,6 +4,7 @@ import Loader from './Loader';
 import Card from './Card';
 import FilterIcon from '../assets/StayBlack.svg'; // Ajusta la ruta según sea necesario
 import DropdownFilter from './DropdownFilter'; // Importa el nuevo componente
+import DropDownSort from './DropDownSort'; // Importa el nuevo componente
 import '../styles/index.scss';
 
 const Main: React.FC = () => {
@@ -136,40 +137,12 @@ const Main: React.FC = () => {
             onClick={toggleMenu}
           />
           {/* Menú desplegable para ordenación */}
-          {menuOpen && (
-            <div className="sort-menu">
-              <button
-                className={`sort-menu-item ${sortOption === 'Nada' ? 'active' : ''}`}
-                onClick={() => handleSortChange('Nada')}
-              >
-                Nada
-              </button>
-              <button
-                className={`sort-menu-item ${sortOption === 'De menor a mayor precio' ? 'active' : ''}`}
-                onClick={() => handleSortChange('De menor a mayor precio')}
-              >
-                De menor a mayor precio
-              </button>
-              <button
-                className={`sort-menu-item ${sortOption === 'De mayor a menor precio' ? 'active' : ''}`}
-                onClick={() => handleSortChange('De mayor a menor precio')}
-              >
-                De mayor a menor precio
-              </button>
-              <button
-                className={`sort-menu-item ${sortOption === 'Más nuevos primero' ? 'active' : ''}`}
-                onClick={() => handleSortChange('Más nuevos primero')}
-              >
-                Más nuevos primero
-              </button>
-              <button
-                className={`sort-menu-item ${sortOption === 'Más viejos primero' ? 'active' : ''}`}
-                onClick={() => handleSortChange('Más viejos primero')}
-              >
-                Más viejos primero
-              </button>
-            </div>
-          )}
+          <DropDownSort
+            isOpen={menuOpen}
+            selectedSort={sortOption}
+            onSortChange={handleSortChange}
+            onClose={() => setMenuOpen(false)}
+          />
         </div>
       </section>
 

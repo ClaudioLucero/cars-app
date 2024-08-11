@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { CarDetail } from '../types/carDetail';
 import Loader from './Loader';
 import Carousel from './Carousel'; // Asegúrate de importar el componente Carousel
-import Highlight from './Highlight'; 
+import Highlight from './Highlight';
 import { fetchCarDetails } from '../services/cardService';
 import '../styles/index.scss';
 
@@ -82,7 +82,7 @@ const CarDetails: React.FC = () => {
       {/* Características */}
       <section>
         <div className="car-details__highlights">
-        <Highlight highlights={car.model_highlights} />
+          <Highlight highlights={car.model_highlights} />
         </div>
       </section>
     </div>

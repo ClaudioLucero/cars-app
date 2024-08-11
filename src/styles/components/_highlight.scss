@@ -1,64 +1,63 @@
 .highlight {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &__row {
     display: flex;
-    flex-direction: column;
-    gap: 16px;
-  
-    &__row {
-      display: flex;
-      justify-content: space-between;
-      padding: 42px;
-      gap: 55px;
-      flex-wrap: wrap; // Asegura que las columnas se envuelvan en pantallas más pequeñas
-  
-      & > .highlight__column {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        min-width: 0; // Permite que las columnas se reduzcan en tamaño si es necesario
-      }
-    }
-  
-    &__column {
+    justify-content: space-between;
+    padding: 42px;
+    gap: 55px;
+    flex-wrap: wrap; // Asegura que las columnas se envuelvan en pantallas más pequeñas
+
+    & > .highlight__column {
+      flex: 1;
       display: flex;
       flex-direction: column;
       gap: 8px;
-  
-      img {
-        width: 80%;
-        height: auto;
-        max-width: 500px;
-        max-height: 300px;
-        object-fit: cover;
-        border-radius: 4px;
-      }
-  
-      h3 {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 600;
-        font-size: 20px;
-        margin: 0;
-      }
-  
-      .highlight__content {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 400;
-        font-size: 16px;
+      min-width: 0; // Permite que las columnas se reduzcan en tamaño si es necesario
+    }
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    img {
+      width: 80%;
+      height: auto;
+      max-width: 500px;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .highlight__content {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+    }
+  }
+}
+
+// Estilos para pantallas móviles
+@media (max-width: $width-mobile) {
+  .highlight {
+    .highlight__row {
+      flex-direction: column;
+      gap: 24px;
+
+      & > .highlight__column {
+        width: 100%;
       }
     }
   }
-  
-  // Estilos para pantallas móviles
-  @media (max-width: $width-mobile) {
-    .highlight {
-      .highlight__row {
-        flex-direction: column;
-        gap: 24px;
-  
-        & > .highlight__column {
-          width: 100%;
-        }
-      }
-    }
-  }
-  
+}

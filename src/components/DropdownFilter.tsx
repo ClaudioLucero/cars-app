@@ -8,7 +8,12 @@ interface DropdownFilterProps {
   onClose: () => void;
 }
 
-const DropdownFilter: React.FC<DropdownFilterProps> = ({ isOpen, selectedFilter, onFilterChange, onClose }) => {
+const DropdownFilter: React.FC<DropdownFilterProps> = ({
+  isOpen,
+  selectedFilter,
+  onFilterChange,
+  onClose,
+}) => {
   if (!isOpen) return null;
 
   return (

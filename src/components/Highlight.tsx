@@ -14,7 +14,10 @@ const Highlight: React.FC<HighlightProps> = ({ highlights }) => {
       <div className="highlight__row">
         <div className="highlight__column">
           <h3>{highlights[0].title}</h3>
-          <div className="highlight__content" dangerouslySetInnerHTML={{ __html: highlights[0].content }} />
+          <div
+            className="highlight__content"
+            dangerouslySetInnerHTML={{ __html: highlights[0].content }}
+          />
         </div>
         <div className="highlight__column">
           <img src={highlights[0].image} alt={highlights[0].title} />
@@ -26,7 +29,10 @@ const Highlight: React.FC<HighlightProps> = ({ highlights }) => {
         </div>
         <div className="highlight__column">
           <h3>{highlights[1].title}</h3>
-          <div className="highlight__content" dangerouslySetInnerHTML={{ __html: highlights[1].content }} />
+          <div
+            className="highlight__content"
+            dangerouslySetInnerHTML={{ __html: highlights[1].content }}
+          />
         </div>
       </div>
     </div>
