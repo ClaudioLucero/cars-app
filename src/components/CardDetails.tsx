@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { CarDetail } from '../types/carDetail';
 import Loader from './Loader';
 import Carousel from './Carousel'; // Asegúrate de importar el componente Carousel
+import Highlight from './Highlight'; 
 import { fetchCarDetails } from '../services/cardService';
 import '../styles/index.scss';
 
@@ -71,7 +72,7 @@ const CarDetails: React.FC = () => {
         </div>
       </div>
 
-      {/* Carousel de características */}
+      {/* Carousel */}
       {car.model_features && car.model_features.length > 0 && (
         <div className="car-details__carousel">
           <Carousel features={car.model_features} />
@@ -80,7 +81,9 @@ const CarDetails: React.FC = () => {
 
       {/* Características */}
       <section>
-        <div className="car-details__features"></div>
+        <div className="car-details__highlights">
+        <Highlight highlights={car.model_highlights} />
+        </div>
       </section>
     </div>
   );
