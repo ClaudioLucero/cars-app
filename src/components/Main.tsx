@@ -3,15 +3,16 @@ import { Car } from '../types/car'; // Ajusta la ruta según sea necesario
 import Loader from './Loader';
 import Card from './Card';
 import FilterIcon from '../assets/StayBlack.svg'; // Ajusta la ruta según sea necesario
+import DropdownFilter from './DropdownFilter'; // Importa el nuevo componente
 import '../styles/index.scss';
 
 const Main: React.FC = () => {
   const [cars, setCars] = useState<Car[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [menuOpen, setMenuOpen] = useState<boolean>(false); // Estado para el menú desplegable
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [filterMenuOpen, setFilterMenuOpen] = useState<boolean>(false);
   const [selectedFilter, setSelectedFilter] = useState<string>('Todos');
-  const [sortOption, setSortOption] = useState<string>('Nada'); // Estado para la opción de ordenación
+  const [sortOption, setSortOption] = useState<string>('Nada');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -49,7 +50,6 @@ const Main: React.FC = () => {
     setMenuOpen(false);
   };
 
-  // Filtrar autos según el filtro seleccionado
   const filteredCars = () => {
     switch (selectedFilter) {
       case 'Autos':
@@ -63,7 +63,6 @@ const Main: React.FC = () => {
     }
   };
 
-  // Ordenar autos según la opción seleccionada
   const sortedCars = () => {
     switch (sortOption) {
       case 'De menor a mayor precio':
@@ -81,12 +80,10 @@ const Main: React.FC = () => {
 
   return (
     <main className="main">
-      {/* Título */}
       <section className="main__title">
         <h1>Descubrí todos los modelos</h1>
       </section>
 
-      {/* Menú en horizontal */}
       <section className="main__menu">
         <div className="main__menu-item">
           <span>Filtrar por</span>
@@ -96,34 +93,13 @@ const Main: React.FC = () => {
             className="filter-icon"
             onClick={toggleFilterMenu}
           />
-          {filterMenuOpen && (
-            <div className="filter-menu">
-              <button
-                className={`filter-menu-item ${selectedFilter === 'Todos' ? 'active' : ''}`}
-                onClick={() => handleFilterChange('Todos')}
-              >
-                Todos
-              </button>
-              <button
-                className={`filter-menu-item ${selectedFilter === 'Autos' ? 'active' : ''}`}
-                onClick={() => handleFilterChange('Autos')}
-              >
-                Autos
-              </button>
-              <button
-                className={`filter-menu-item ${selectedFilter === 'Pickups y Comerciales' ? 'active' : ''}`}
-                onClick={() => handleFilterChange('Pickups y Comerciales')}
-              >
-                Pickups y Comerciales
-              </button>
-              <button
-                className={`filter-menu-item ${selectedFilter === 'SUVs' ? 'active' : ''}`}
-                onClick={() => handleFilterChange('SUVs')}
-              >
-                SUVs Crossovers
-              </button>
-            </div>
-          )}
+          {/* Menú desplegable para filtros en móviles */}
+          <DropdownFilter
+            isOpen={filterMenuOpen}
+            selectedFilter={selectedFilter}
+            onFilterChange={handleFilterChange}
+            onClose={() => setFilterMenuOpen(false)}
+          />
         </div>
         <div className="main__tabs">
           <button
@@ -159,6 +135,7 @@ const Main: React.FC = () => {
             className="sort-icon"
             onClick={toggleMenu}
           />
+          {/* Menú desplegable para ordenación */}
           {menuOpen && (
             <div className="sort-menu">
               <button
@@ -196,17 +173,16 @@ const Main: React.FC = () => {
         </div>
       </section>
 
-      {/* Cuadrícula de Imágenes */}
       <section className="main__gallery">
         {loading ? (
           <div className="main__gallery-loader">
-            <Loader /> {/* Muestra el Loader solo dentro de main__gallery */}
+            <Loader />
           </div>
         ) : (
           sortedCars().map((item: Car) => (
             <Card
               key={item.id}
-              id={item.id} // El id se pasa como número, que es el tipo esperado en el componente Card
+              id={item.id}
               name={item.name}
               year={item.year}
               price={item.price}

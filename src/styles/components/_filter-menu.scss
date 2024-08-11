@@ -1,0 +1,34 @@
+@media (max-width: $width-mobile) {
+    .main__menu-item {
+      .filter-icon {
+        display: block; // Muestra el ícono en pantallas móviles
+      }
+      .filter-menu {
+        display: none; // Oculta el menú en pantallas móviles
+      }
+    }
+  
+    .filter-menu {
+      position: absolute;
+      width: 124px;
+      top: 42px;
+      background: white;
+      border: 1px solid gray;
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      .filter-menu-item {
+        display: block;
+        margin: 5px 0;
+        padding: 8px;
+        border: none;
+        background: none;
+        cursor: pointer;
+        &.active {
+          background-color: $primary-color;
+          color: white;
+        }
+      }
+    }
+  }
+  
