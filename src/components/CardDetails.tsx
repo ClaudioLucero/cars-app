@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { CarDetail } from '../types/carDetail'; // Importa el tipo correcto
+import { CarDetail } from '../types/carDetail';
 import Loader from './Loader';
+import Carousel from './Carousel'; // Asegúrate de importar el componente Carousel
 import { fetchCarDetails } from '../services/cardService';
 import '../styles/index.scss';
 
@@ -14,9 +15,8 @@ const CarDetails: React.FC = () => {
   useEffect(() => {
     const getCarDetails = async () => {
       if (!id || id.trim() === '') {
-        // Si el id no está presente o es una cadena vacía, redirige a la página principal
-        setLoading(false); // Deja de cargar si no hay id
-        navigate('/'); // Redirige a la página principal
+        setLoading(false);
+        navigate('/');
         return;
       }
 
@@ -25,7 +25,7 @@ const CarDetails: React.FC = () => {
       if (carData) {
         setCar(carData);
       } else {
-        setCar(null); // Configura car como null en caso de error
+        setCar(null);
       }
 
       setLoading(false);
@@ -33,6 +33,11 @@ const CarDetails: React.FC = () => {
 
     getCarDetails();
   }, [id, navigate]);
+
+  const extractText = (html: string) => {
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    return doc.body.textContent || '';
+  };
 
   if (loading) {
     return <Loader />;
@@ -52,29 +57,31 @@ const CarDetails: React.FC = () => {
 
   return (
     <div className="car-details">
-      <h2>{car.name}</h2>
-      <img src={car.thumbnail} alt={car.name} />
-      <p>Año: {car.year}</p>
-      <p>Precio: ${car.price}</p>
-      <h3>Descripción</h3>
-      <div dangerouslySetInnerHTML={{ __html: car.description }} />
-      <h3>Características</h3>
-      <ul>
-        {car.model_features.map((feature, index) => (
-          <li key={index}>
-            <img src={feature.image} alt={feature.name} />
-            <strong>{feature.name}:</strong> {feature.description}
-          </li>
-        ))}
-      </ul>
-      <h3>Destacados</h3>
-      {car.model_highlights.map((highlight, index) => (
-        <div key={index}>
-          <h4>{highlight.title}</h4>
-          <div dangerouslySetInnerHTML={{ __html: highlight.content }} />
-          <img src={highlight.image} alt={highlight.title} />
+      <div className="car-details__main">
+        {/* Primera columna: Imagen del auto */}
+        <div className="car-details__main-image">
+          <img src={car.photo} alt={car.name} />
         </div>
-      ))}
+
+        {/* Segunda columna: Detalles del auto */}
+        <div className="car-details__main-info">
+          <h1>{car.name}</h1>
+          <h2>{car.title}</h2>
+          <p>{extractText(car.description)}</p>
+        </div>
+      </div>
+
+      {/* Carousel de características */}
+      {car.model_features && car.model_features.length > 0 && (
+        <div className="car-details__carousel">
+          <Carousel features={car.model_features} />
+        </div>
+      )}
+
+      {/* Características */}
+      <section>
+        <div className="car-details__features"></div>
+      </section>
     </div>
   );
 };

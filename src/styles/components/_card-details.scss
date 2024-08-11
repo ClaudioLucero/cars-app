@@ -1,13 +1,72 @@
 .car-details {
-  // Estilos para el componente de detalles del auto
-  h2 {
-    font-size: 2rem;
+  .car-details__main {
+    display: flex;
+    height: 320px; // Mantén esta altura para pantallas grandes
+    align-items: center; // Centra verticalmente los elementos en pantallas grandes
+
+    &-image {
+      display: flex;
+      align-items: center;
+      justify-content: center; // Centra horizontalmente la imagen
+      width: 559px; // Ancho de la imagen
+      height: 320px; // Altura de la imagen
+      img {
+        height: 100%; // Asegura que la imagen ocupe la altura del contenedor
+        object-fit: cover; // Ajusta la imagen para cubrir el área
+      }
+    }
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start; // Alinea los elementos al inicio del contenedor
+      padding: 16px; // Ajusta el padding si es necesario
+      gap: 1rem; // Espaciado entre los elementos de texto
+      margin-left: 20px;
+
+      h1 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 20px;
+        margin: 0;
+      }
+
+      h2 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 35px;
+        margin: 0;
+      }
+
+      p {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        margin: 0;
+      }
+    }
   }
-  img {
-    width: 100%;
-    height: auto;
+  .car-details__features {
+    height: 222px;
   }
-  p {
-    font-size: 1.2rem;
+
+  // Estilos específicos para pantallas móviles
+  @media (max-width: $width-mobile) {
+    .car-details__main {
+      flex-direction: column; // Cambia la dirección del flex para pilas verticales
+      height: auto; // Ajusta la altura para que se adapte al contenido
+      align-items: center; // Centra horizontalmente los elementos en pantallas móviles
+
+      &-image {
+        width: 100%; // La imagen ocupará el ancho completo en pantallas móviles
+      }
+
+      &-info {
+        margin-top: 0; // Elimina el margen superior en vista móvil
+        padding: 16px; // Puedes ajustar el padding si es necesario
+        text-align: left; // Centra el texto en vista móvil
+        gap: 1rem; // Espaciado entre los elementos de texto
+      }
+    }
   }
 }

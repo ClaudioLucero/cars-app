@@ -16,7 +16,9 @@ export const fetchCars = async (): Promise<Car[]> => {
   }
 };
 
-export const fetchCarDetails = async (id: string): Promise<CarDetail | null> => {
+export const fetchCarDetails = async (
+  id: string
+): Promise<CarDetail | null> => {
   try {
     const response = await fetch(`${API_URL}${id}`);
     if (!response.ok) {
