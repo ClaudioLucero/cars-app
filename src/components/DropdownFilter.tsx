@@ -1,4 +1,6 @@
+// src/components/DropdownFilter.tsx
 import React from 'react';
+import texts from '../config/texts'; // Asegúrate de ajustar la ruta si es necesario
 import '../styles/index.scss';
 
 interface DropdownFilterProps {
@@ -19,28 +21,28 @@ const DropdownFilter: React.FC<DropdownFilterProps> = ({
   return (
     <div className="filter-menu" onClick={onClose}>
       <button
-        className={`filter-menu-item ${selectedFilter === 'Todos' ? 'active' : ''}`}
-        onClick={() => onFilterChange('Todos')}
+        className={`filter-menu-item ${selectedFilter === texts.filter.options.all ? 'active' : ''}`}
+        onClick={() => onFilterChange(texts.filter.options.all)}
       >
-        Todos
+        {texts.filter.options.all}
       </button>
       <button
-        className={`filter-menu-item ${selectedFilter === 'Autos' ? 'active' : ''}`}
-        onClick={() => onFilterChange('Autos')}
+        className={`filter-menu-item ${selectedFilter === texts.filter.options.cars ? 'active' : ''}`}
+        onClick={() => onFilterChange(texts.filter.options.cars)}
       >
-        Autos
+        {texts.filter.options.cars}
       </button>
       <button
-        className={`filter-menu-item ${selectedFilter === 'Pickups y Comerciales' ? 'active' : ''}`}
-        onClick={() => onFilterChange('Pickups y Comerciales')}
+        className={`filter-menu-item ${selectedFilter === texts.filter.options.pickups ? 'active' : ''}`}
+        onClick={() => onFilterChange(texts.filter.options.pickups)}
       >
-        Pickups y Comerciales
+        {texts.filter.options.pickups}
       </button>
       <button
-        className={`filter-menu-item ${selectedFilter === 'SUVs' ? 'active' : ''}`}
-        onClick={() => onFilterChange('SUVs')}
+        className={`filter-menu-item ${selectedFilter === texts.filter.options.suvs ? 'active' : ''}`}
+        onClick={() => onFilterChange(texts.filter.options.suvs)}
       >
-        SUVs Crossovers
+        {texts.filter.options.suvs}
       </button>
     </div>
   );

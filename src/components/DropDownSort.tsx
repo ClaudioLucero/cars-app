@@ -1,5 +1,6 @@
 // src/components/DropDownSort.tsx
 import React from 'react';
+import texts from '../config/texts'; // Asegúrate de ajustar la ruta si es necesario
 import '../styles/index.scss'; // Asegúrate de importar los estilos aquí si no están en el archivo principal
 
 interface DropDownSortProps {
@@ -20,49 +21,40 @@ const DropDownSort: React.FC<DropDownSortProps> = ({
   return (
     <div className="sort-menu">
       <button
-        className={`sort-menu-item ${selectedSort === 'Nada' ? 'active' : ''}`}
+        className={`sort-menu-item ${selectedSort === texts.sort.options.priceAsc ? 'active' : ''}`}
         onClick={() => {
-          onSortChange('Nada');
+          onSortChange(texts.sort.options.priceAsc);
           onClose();
         }}
       >
-        Nada
+        {texts.sort.options.priceAsc}
       </button>
       <button
-        className={`sort-menu-item ${selectedSort === 'De menor a mayor precio' ? 'active' : ''}`}
+        className={`sort-menu-item ${selectedSort === texts.sort.options.priceDesc ? 'active' : ''}`}
         onClick={() => {
-          onSortChange('De menor a mayor precio');
+          onSortChange(texts.sort.options.priceDesc);
           onClose();
         }}
       >
-        De menor a mayor precio
+        {texts.sort.options.priceDesc}
       </button>
       <button
-        className={`sort-menu-item ${selectedSort === 'De mayor a menor precio' ? 'active' : ''}`}
+        className={`sort-menu-item ${selectedSort === texts.sort.options.newFirst ? 'active' : ''}`}
         onClick={() => {
-          onSortChange('De mayor a menor precio');
+          onSortChange(texts.sort.options.newFirst);
           onClose();
         }}
       >
-        De mayor a menor precio
+        {texts.sort.options.newFirst}
       </button>
       <button
-        className={`sort-menu-item ${selectedSort === 'Más nuevos primero' ? 'active' : ''}`}
+        className={`sort-menu-item ${selectedSort === texts.sort.options.oldFirst ? 'active' : ''}`}
         onClick={() => {
-          onSortChange('Más nuevos primero');
+          onSortChange(texts.sort.options.oldFirst);
           onClose();
         }}
       >
-        Más nuevos primero
-      </button>
-      <button
-        className={`sort-menu-item ${selectedSort === 'Más viejos primero' ? 'active' : ''}`}
-        onClick={() => {
-          onSortChange('Más viejos primero');
-          onClose();
-        }}
-      >
-        Más viejos primero
+        {texts.sort.options.oldFirst}
       </button>
     </div>
   );

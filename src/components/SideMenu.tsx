@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import texts from '../config/texts'; // Importa el archivo de textos
 import '../styles/index.scss';
 
 interface SideMenuProps {
@@ -19,61 +21,61 @@ const SideMenu: React.FC<SideMenuProps> = ({ isOpen, onClose }) => {
             <ul>
               <div className="separator"></div>
               <li>
-                <a href="#modelos">Modelos</a>
+                <Link to="/home" onClick={onClose}>{texts.menu.modelos}</Link>
               </li>
               <li>
-                <a href="#servicios-y-accesorios">Servicios y Accesorios</a>
+                <a href="#servicios-y-accesorios">{texts.menu.servicios}</a>
               </li>
               <li>
-                <a href="#financicion">Financiación</a>
+                <a href="#financicion">{texts.menu.financiacion}</a>
               </li>
               <li>
-                <a href="#revies-y-comunidad">Reviews y Comunidad</a>
-              </li>
-              <div className="separator"></div>
-              <li>
-                <a href="#ficha-modelo">Servicios y Accesorios</a>
-              </li>
-              <li>
-                <a href="#toyota-mobility-service">Toyota Mobility Service</a>
-              </li>
-              <li>
-                <a href="#toyota-gazoo-racing">Toyota Gazoo Racing</a>
-              </li>
-              <li>
-                <a href="#toyota-hibridos">Toyota Hibridos</a>
+                <a href="#revies-y-comunidad">{texts.menu.reviews}</a>
               </li>
               <div className="separator"></div>
               <li>
-                <a href="#concecionarios">Concesionarios</a>
+                <a href="#ficha-modelo">{texts.menu.fichaModelo}</a>
               </li>
               <li>
-                <a href="#test-drive">Test Drive</a>
+                <a href="#toyota-mobility-service">{texts.menu.mobilityService}</a>
               </li>
               <li>
-                <a href="#contacto">Contacto</a>
+                <a href="#toyota-gazoo-racing">{texts.menu.gazooRacing}</a>
+              </li>
+              <li>
+                <a href="#toyota-hibridos">{texts.menu.hibridos}</a>
+              </li>
+              <div className="separator"></div>
+              <li>
+                <a href="#concecionarios">{texts.menu.concesionarios}</a>
+              </li>
+              <li>
+                <a href="#test-drive">{texts.menu.testDrive}</a>
+              </li>
+              <li>
+                <a href="#contacto">{texts.menu.contacto}</a>
               </li>
             </ul>
           </div>
           <div className="side-menu__list-container">
             <ul>
               <li>
-                <a href="#actividades">Actividades</a>
+                <a href="#actividades">{texts.menu.actividades}</a>
               </li>
               <li>
-                <a href="#servicios-al-cliente">Servicios al Cliente</a>
+                <a href="#servicios-al-cliente">{texts.menu.customerService}</a>
               </li>
               <li>
-                <a href="#ventas-especiales">Ventas Especiales</a>
+                <a href="#ventas-especiales">{texts.menu.specialSales}</a>
               </li>
               <li>
-                <a href="#innovacion">Innovación</a>
+                <a href="#innovacion">{texts.menu.innovation}</a>
               </li>
               <li>
-                <a href="#prensa">Prensa</a>
+                <a href="#prensa">{texts.menu.press}</a>
               </li>
               <li>
-                <a href="#acerca-de">Acerca de...</a>
+                <a href="#acerca-de">{texts.menu.about}</a>
               </li>
             </ul>
           </div>

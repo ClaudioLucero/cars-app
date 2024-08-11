@@ -5,6 +5,7 @@ import Card from './Card';
 import FilterIcon from '../assets/StayBlack.svg'; // Ajusta la ruta según sea necesario
 import DropdownFilter from './DropdownFilter'; // Importa el nuevo componente
 import DropDownSort from './DropDownSort'; // Importa el nuevo componente
+import texts from '../config/texts'; // Importa el archivo de textos
 import '../styles/index.scss';
 
 const Main: React.FC = () => {
@@ -12,15 +13,13 @@ const Main: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [filterMenuOpen, setFilterMenuOpen] = useState<boolean>(false);
-  const [selectedFilter, setSelectedFilter] = useState<string>('Todos');
+  const [selectedFilter, setSelectedFilter] = useState<string>(texts.filter.options.all);
   const [sortOption, setSortOption] = useState<string>('Nada');
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          'https://challenge.egodesign.dev/api/models/'
-        );
+        const response = await fetch('https://challenge.egodesign.dev/api/models/');
         const data = await response.json();
         setCars(data);
       } catch (error) {
@@ -53,11 +52,11 @@ const Main: React.FC = () => {
 
   const filteredCars = () => {
     switch (selectedFilter) {
-      case 'Autos':
+      case texts.filter.options.cars:
         return cars.filter(
           (car) => car.segment === 'Hatchback' || car.segment === 'Sedan'
         );
-      case 'Todos':
+      case texts.filter.options.all:
         return cars;
       default:
         return cars.filter((car) => car.segment === selectedFilter);
@@ -66,13 +65,13 @@ const Main: React.FC = () => {
 
   const sortedCars = () => {
     switch (sortOption) {
-      case 'De menor a mayor precio':
+      case texts.sort.options.priceAsc:
         return [...filteredCars()].sort((a, b) => a.price - b.price);
-      case 'De mayor a menor precio':
+      case texts.sort.options.priceDesc:
         return [...filteredCars()].sort((a, b) => b.price - a.price);
-      case 'Más nuevos primero':
+      case texts.sort.options.newFirst:
         return [...filteredCars()].sort((a, b) => b.year - a.year);
-      case 'Más viejos primero':
+      case texts.sort.options.oldFirst:
         return [...filteredCars()].sort((a, b) => a.year - b.year);
       default:
         return filteredCars();
@@ -82,12 +81,12 @@ const Main: React.FC = () => {
   return (
     <main className="main">
       <section className="main__title">
-        <h1>Descubrí todos los modelos</h1>
+        <h1>{texts.main.title}</h1>
       </section>
 
       <section className="main__menu">
         <div className="main__menu-item">
-          <span>Filtrar por</span>
+          <span>{texts.filter.title}</span>
           <img
             src={FilterIcon}
             alt="Filtrar"
@@ -104,32 +103,32 @@ const Main: React.FC = () => {
         </div>
         <div className="main__tabs">
           <button
-            className={`tab-button ${selectedFilter === 'Todos' ? 'active' : ''}`}
-            onClick={() => handleFilterChange('Todos')}
+            className={`tab-button ${selectedFilter === texts.filter.options.all ? 'active' : ''}`}
+            onClick={() => handleFilterChange(texts.filter.options.all)}
           >
-            Todos
+            {texts.filter.options.all}
           </button>
           <button
-            className={`tab-button ${selectedFilter === 'Autos' ? 'active' : ''}`}
-            onClick={() => handleFilterChange('Autos')}
+            className={`tab-button ${selectedFilter === texts.filter.options.cars ? 'active' : ''}`}
+            onClick={() => handleFilterChange(texts.filter.options.cars)}
           >
-            Autos
+            {texts.filter.options.cars}
           </button>
           <button
             className={`tab-button ${selectedFilter === 'Pickups y Comerciales' ? 'active' : ''}`}
             onClick={() => handleFilterChange('Pickups y Comerciales')}
           >
-            Pickups y Comerciales
+            {texts.filter.options.pickups}
           </button>
           <button
-            className={`tab-button ${selectedFilter === 'SUVs' ? 'active' : ''}`}
-            onClick={() => handleFilterChange('SUVs')}
+            className={`tab-button ${selectedFilter === 'SUVs Crossovers' ? 'active' : ''}`}
+            onClick={() => handleFilterChange('SUVs Crossovers')}
           >
-            SUVs Crossovers
+            {texts.filter.options.suvs}
           </button>
         </div>
         <div className="main__sort">
-          <span>Ordenar por</span>
+          <span>{texts.sort.title}</span>
           <img
             src={FilterIcon}
             alt="Ordenar"
