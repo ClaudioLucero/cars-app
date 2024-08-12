@@ -1,22 +1,21 @@
-// src/styles/_sort-menu.scss
 .sort-menu {
   position: absolute;
   width: 186px;
   top: 29px;
   right: -6px;
-  background: #ffffff;
-  border: 1px solid #cccccc;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: $menu-background-color;
+  border: 1px solid $menu-border-color;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
   display: flex;
   flex-direction: column;
   z-index: 10;
 
   .sort-menu-item {
-    padding: 0.5rem 1rem;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
-    color: #191919;
+    padding: $padding-small $padding-medium;
+    font-family: $font-family;
+    font-size: $font-size-medium;
+    color: $text-color;
     border: none;
     background: transparent;
     cursor: pointer;
@@ -26,8 +25,8 @@
 
     &:hover,
     &.active {
-      background: #f1f1f1;
-      color: #007bff;
+      background: $hover-background-color;
+      color: $secondary-color;
     }
   }
 }

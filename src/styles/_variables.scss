@@ -1,5 +1,53 @@
+
+
+$width-mobile: 40em;
+// Color Palette
 $primary-color: #ffffff;
 $secondary-color: #2ecc71;
 $header-background-color: gray;
+$card-background-color: #ffffff;
+$carousel-background-color: #f7f7f7;
+$highlight-background-color: #e0e0e0;
+$menu-background-color: #ffffff;
+$menu-border-color: #cccccc;
+$text-color: #191919;
+$border-color: #cccccc;
+$hover-background-color: #f7f7f7;
+$active-background-color: #e0e0e0;
+$loader-border-color: rgba(0, 0, 0, 0.1);
+$loader-border-top-color: #000;
 
+// Font Styles
+$font-family: 'Montserrat', sans-serif;
+$font-weight-normal: 400;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-size-small: 12px;
+$font-size-medium: 14px;
+$font-size-large: 16px;
+$font-size-xlarge: 20px;
+$font-size-xxlarge: 28px;
+$font-size-title: 35px;
+
+// Dimensions
 $width-mobile: 40em;
+$carousel-height: 300px;
+$card-width: 269px;
+$card-height: 215px;
+$highlight-max-width: 500px;
+$highlight-max-height: 300px;
+$loader-size: 50px;
+
+// Spacing
+$padding-small: 0.5rem;
+$padding-medium: 1rem;
+$padding-large: 2rem;
+$margin-small: 5px;
+$margin-medium: 8px;
+$margin-large: 16px;
+
+// Misc
+$border-radius: 4px;
+$border-radius-large: 8px;
+$box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+$scrollbar-width: none;

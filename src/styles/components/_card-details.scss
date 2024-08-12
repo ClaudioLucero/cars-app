@@ -1,72 +1,71 @@
 .car-details {
   .car-details__main {
     display: flex;
-    height: 320px; // Mantén esta altura para pantallas grandes
-    align-items: center; // Centra verticalmente los elementos en pantallas grandes
+    height: 320px;
+    align-items: center;
 
     &-image {
       display: flex;
       align-items: center;
-      justify-content: center; // Centra horizontalmente la imagen
-      width: 559px; // Ancho de la imagen
-      height: 320px; // Altura de la imagen
-      overflow: hidden; // Asegura que nada se desborde del contenedor
+      justify-content: center;
+      width: 559px;
+      height: 320px;
+      overflow: hidden;
 
       .lazy-load-image {
-        width: 100%; // Ocupa el ancho del contenedor
-        height: 100%; // Ocupa la altura del contenedor
-        object-fit: cover; // Ajusta la imagen para cubrir el área
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
     }
 
     &-info {
       display: flex;
       flex-direction: column;
-      justify-content: flex-start; // Alinea los elementos al inicio del contenedor
-      padding: 16px; // Ajusta el padding si es necesario
-      gap: 1rem; // Espaciado entre los elementos de texto
-      margin-left: 20px;
+      justify-content: flex-start;
+      padding: $padding-medium;
+      gap: $margin-small;
+      margin-left: $margin-medium;
 
       h1 {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 600;
-        font-size: 20px;
+        font-family: $font-family;
+        font-weight: $font-weight-semibold;
+        font-size: $font-size-title;
         margin: 0;
       }
 
       h2 {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 600;
-        font-size: 35px;
+        font-family: $font-family;
+        font-weight: $font-weight-semibold;
+        font-size: $font-size-xxlarge;
         margin: 0;
       }
 
       p {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 400;
-        font-size: 16px;
+        font-family: $font-family;
+        font-weight: $font-weight-normal;
+        font-size: $font-size-medium;
         margin: 0;
       }
     }
   }
 
-  // Estilos específicos para pantallas móviles
   @media (max-width: $width-mobile) {
     .car-details__main {
-      flex-direction: column; // Cambia la dirección del flex para pilas verticales
-      height: auto; // Ajusta la altura para que se adapte al contenido
-      align-items: center; // Centra horizontalmente los elementos en pantallas móviles
+      flex-direction: column;
+      height: auto;
+      align-items: center;
 
       &-image {
-        width: 100%; // La imagen ocupará el ancho completo en pantallas móviles
-        height: auto; // Ajusta la altura automáticamente para mantener la proporción
+        width: 100%;
+        height: auto;
       }
 
       &-info {
-        margin-top: 0; // Elimina el margen superior en vista móvil
-        padding: 16px; // Puedes ajustar el padding si es necesario
-        text-align: left; // Centra el texto en vista móvil
-        gap: 1rem; // Espaciado entre los elementos de texto
+        margin-top: 0;
+        padding: $padding-medium;
+        text-align: left;
+        gap: $margin-small;
       }
     }
   }

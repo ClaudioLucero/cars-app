@@ -13,22 +13,16 @@
 
 .App {
   display: grid;
-  grid-template-columns: 1fr; /* Crea una sola columna */
-  grid-template-rows: auto 1fr; /* Fila para el header y una fila para el main */
+  grid-template-columns: 1fr; 
+  grid-template-rows: auto 1fr; 
   min-height: 100vh;
-  padding: 10px;
+  padding: $padding-medium;
 }
 
-.header {
-  grid-row: 1; /* El header en la primera fila */
-}
 
-.main {
-  grid-row: 2; /* El main en la segunda fila */
-}
 .footer {
   height: 50px;
-  background-color: #000000; // Color de fondo negro
+  background-color:$loader-border-top-color;
   width: 100%;
   position: fixed;
   bottom: 0;

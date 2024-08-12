@@ -1,20 +1,21 @@
+// highlight
 .highlight {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: $margin-medium; // Reemplaza 16px con la variable
 
   &__row {
     display: flex;
     justify-content: space-between;
-    padding: 42px;
-    gap: 55px;
+    padding: $padding-large; // Reemplaza 42px con la variable
+    gap: $margin-large; // Reemplaza 55px con la variable
     flex-wrap: wrap; // Asegura que las columnas se envuelvan en pantallas más pequeñas
 
     & > .highlight__column {
       flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: $margin-small; // Reemplaza 8px con la variable
       min-width: 0; // Permite que las columnas se reduzcan en tamaño si es necesario
     }
   }
@@ -22,28 +23,28 @@
   &__column {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: $margin-small; // Reemplaza 8px con la variable
 
     img {
       width: 80%;
       height: auto;
-      max-width: 500px;
-      max-height: 300px;
+      max-width: $highlight-max-width; // Reemplaza 500px con la variable
+      max-height: $highlight-max-height; // Reemplaza 300px con la variable
       object-fit: cover;
-      border-radius: 4px;
+      border-radius: $border-radius; // Reemplaza 4px con la variable
     }
 
     h3 {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      font-size: 20px;
+      font-family: $font-family;
+      font-weight: $font-weight-semibold; // Reemplaza 600 con la variable
+      font-size: $font-size-xlarge; // Reemplaza 20px con la variable
       margin: 0;
     }
 
     .highlight__content {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 400;
-      font-size: 16px;
+      font-family: $font-family;
+      font-weight: $font-weight-normal; // Reemplaza 400 con la variable
+      font-size: $font-size-medium; // Reemplaza 16px con la variable
     }
   }
 }
@@ -53,7 +54,7 @@
   .highlight {
     .highlight__row {
       flex-direction: column;
-      gap: 24px;
+      gap: $margin-medium; // Reemplaza 24px con la variable
 
       & > .highlight__column {
         width: 100%;

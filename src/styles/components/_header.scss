@@ -2,10 +2,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: white;
-  border-bottom: 1px solid #cccccc;
-  font-family: 'Montserrat', sans-serif;
-  color: #191919;
+  background-color:$primary-color;
+  border-bottom: 1px solid $border-color;
+  font-family: $font-family;
+  color: $text-color;
   width: 100%;
   box-sizing: border-box;
 }
@@ -25,16 +25,14 @@
 }
 .header__nav a {
   text-decoration: none;
-  color: #191919;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
+  color: $text-color;
+  font-family: $font-family;
+  font-size: $font-size-medium;
+  font-weight: $font-weight-semibold;
   line-height: 17.07px;
   text-align: left;
-  border-bottom: 2px solid transparent; // Añadido para el efecto de borde
-  transition:
-    color 0.3s,
-    border-bottom 0.3s;
+  border-bottom: 2px solid transparent;
+  transition: color 0.3s, border-bottom 0.3s;
 }
 
 .header__nav a.active-link {
@@ -44,78 +42,34 @@
 
 .header__nav ul {
   display: flex;
-  list-style: none;
-  width: 288px;
-  margin: 0;
+  justify-content: center;
   padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
 .header__nav li {
-  margin: 0 1rem;
+  margin: 0 $padding-medium;
 }
 
-.header__nav a {
-  text-decoration: none;
-  color: #191919;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 17.07px;
-  text-align: left;
-}
-
-.header__menu {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-}
-.header__menu-text {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  line-height: 17.07px;
-  font-weight: 400;
-  color: #191919;
-}
 .menu-button {
   background: none;
   border: none;
   cursor: pointer;
 }
 
-.menu-button img {
-  width: 25.02px;
-  height: 18px;
-}
 @media (max-width: $width-mobile) {
-  .header {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .header__nav {
+  .header__nav ul {
     display: none;
   }
 
-  .header__logo {
-    flex: 1;
-    text-align: left;
+  .header__nav .menu-button {
+    display: block;
+    font-size: $font-size-large;
+    cursor: pointer;
   }
 
-  .header__menu {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .header__menu-text {
-    display: none;
-  }
-  .menu-button {
-    height: 30px;
-  }
-
-  .header__logo img {
-    width: 30px;
-    height: 30px;
+  .header__nav .menu-button span {
+    margin-left: 10px;
   }
 }

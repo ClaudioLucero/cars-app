@@ -4,7 +4,7 @@
   right: 0;
   width: 320px;
   height: 100%;
-  background-color: #fff;
+  background-color: $menu-background-color;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
   transform: translateX(100%);
   opacity: 0;
@@ -40,13 +40,13 @@
     margin-top: 60px;
 
     &:first-of-type {
-      background-color: #fff; // Estilo para el primer contenedor si es necesario
+      background-color: $menu-background-color; // Estilo para el primer contenedor si es necesario
     }
 
     &:last-of-type {
-      background-color: #efeeef; // Color de fondo para el segundo contenedor
-      margin-top: 30px; // Empuja el contenedor hacia abajo
-      padding-top: 33px;
+      background-color: $carousel-background-color; // Color de fondo para el segundo contenedor
+      margin-top: $margin-medium; // Empuja el contenedor hacia abajo
+      padding-top: $padding-large;
     }
 
     ul {
@@ -58,15 +58,16 @@
       list-style: none;
 
       li {
-        margin: 10px 50px 10px 0;
+        margin: $margin-small $padding-medium $margin-small 0;
         position: relative;
+        padding-top: $padding-small;
 
         a {
-          font-family: 'Montserrat', sans-serif;
-          font-size: 17px;
-          line-height: 17px;
-          font-weight: 400;
-          color: #191919;
+          font-family: $font-family;
+          font-size:$font-size-large;
+          line-height: $font-size-medium;
+          font-weight: $font-weight-normal;
+          color: $text-color;
           text-decoration: none;
           cursor: pointer;
         }
@@ -75,39 +76,40 @@
       .separator {
         width: 90%;
         height: 0.1px;
-        background-color: #d1d1d1;
-        margin: 10px 20px; // Ajusta el espacio alrededor de la línea
+        background-color: $border-color;
+        margin: $margin-small $padding-medium; // Ajusta el espacio alrededor de la línea
       }
     }
   }
 
   &__close {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: $padding-small;
+    right: $padding-small;
     display: flex;
     align-items: center;
-    font-size: 24px;
-    color: #333;
+    font-size: $font-size-xlarge;
+    color: $text-color;
     border: none;
     background: none;
     cursor: pointer;
 
     // Alinea el texto y el ícono
     .side-menu__close-text {
-      font-size: 16px;
+      font-size: $font-size-medium;
       margin-right: 8px; // Espacio entre el texto y el ícono
+      font-family: $font-family;
     }
 
     .side-menu__close-icon {
-      font-size: 24px;
+      font-size: $font-size-xlarge;
     }
   }
 
   &__footer {
     width: 281px;
     height: 350px;
-    background-color: #efeeef;
+    background-color: $carousel-background-color;
     margin-bottom: unset;
     margin-right: 121px;
   }
@@ -146,17 +148,17 @@
   }
 
   .side-menu__close {
-    top: 20px;
-    right: 20px;
-    font-size: 24px;
+    top: $padding-small;
+    right: $padding-small;
+    font-size: $font-size-xlarge;
 
     .side-menu__close-text {
-      font-size: 16px;
+      font-size: $font-size-medium;
       margin-right: 8px; // Espacio entre el texto y el ícono
     }
 
     .side-menu__close-icon {
-      font-size: 24px;
+      font-size: $font-size-xlarge;
     }
   }
 
