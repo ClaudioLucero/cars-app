@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { fetchCars } from '../services/cardService';
 import { Car } from '../types/car'; // Ajusta la ruta según sea necesario
 import Loader from './Loader';
 import Card from './Card';
@@ -21,11 +22,8 @@ const Main: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          'https://challenge.egodesign.dev/api/models/'
-        );
-        const data = await response.json();
-        setCars(data);
+        const cars = await fetchCars(); 
+        setCars(cars);
       } catch (error) {
         console.error('Error fetching data:', error);
       } finally {
