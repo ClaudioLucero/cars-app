@@ -3,14 +3,14 @@ import React from 'react';
 import texts from '../config/texts'; // Asegúrate de ajustar la ruta si es necesario
 import '../styles/index.scss';
 
-interface DropdownFilterProps {
+interface DropDownFilterProps {
   isOpen: boolean;
   selectedFilter: string;
   onFilterChange: (filter: string) => void;
   onClose: () => void;
 }
 
-const DropdownFilter: React.FC<DropdownFilterProps> = ({
+const DropDownFilter: React.FC<DropDownFilterProps> = ({
   isOpen,
   selectedFilter,
   onFilterChange,
@@ -48,4 +48,4 @@ const DropdownFilter: React.FC<DropdownFilterProps> = ({
   );
 };
 
-export default DropdownFilter;
+export default DropDownFilter;

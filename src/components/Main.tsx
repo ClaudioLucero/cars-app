@@ -4,7 +4,7 @@ import { Car } from '../types/car'; // Ajusta la ruta según sea necesario
 import Loader from './Loader';
 import Card from './Card';
 import FilterIcon from '../assets/StayBlack.svg'; // Ajusta la ruta según sea necesario
-import DropdownFilter from './DropdownFilter'; // Importa el nuevo componente
+import DropDownFilter from './DropDownFilter'; // Importa el nuevo componente
 import DropDownSort from './DropDownSort'; // Importa el nuevo componente
 import texts from '../config/texts'; // Importa el archivo de textos
 import '../styles/index.scss';
@@ -58,10 +58,13 @@ const Main: React.FC = () => {
         return cars.filter(
           (car) => car.segment === 'Hatchback' || car.segment === 'Sedan'
         );
+      case texts.filter.options.pickups:
+        return cars.filter((car) => car.segment === 'Pickups y Comerciales');
+      case texts.filter.options.suvs:
+        return cars.filter((car) => car.segment === 'SUVs');
       case texts.filter.options.all:
-        return cars;
       default:
-        return cars.filter((car) => car.segment === selectedFilter);
+        return cars;
     }
   };
 
@@ -96,7 +99,7 @@ const Main: React.FC = () => {
             onClick={toggleFilterMenu}
           />
           {/* Menú desplegable para filtros en móviles */}
-          <DropdownFilter
+          <DropDownFilter
             isOpen={filterMenuOpen}
             selectedFilter={selectedFilter}
             onFilterChange={handleFilterChange}

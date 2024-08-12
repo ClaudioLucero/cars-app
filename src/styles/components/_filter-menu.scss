@@ -17,17 +17,26 @@
     border-radius: 8px;
     padding: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    .filter-menu-item {
-      display: block;
-      margin: 5px 0;
-      padding: 8px;
-      border: none;
-      background: none;
-      cursor: pointer;
-      &.active {
-        background-color: $primary-color;
-        color: white;
-      }
+    display: flex; // Asegura que los ítems ocupen todo el ancho disponible
+    flex-direction: column; // Alinea los ítems verticalmente
+  }
+
+  .filter-menu-item {
+    width: 100%; // Asegura que el ítem ocupe todo el ancho del contenedor
+    display: block;
+    margin: 5px 0;
+    padding: 8px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-align: left; // Alinea el texto a la izquierda
+    box-sizing: border-box; // Incluye padding y border en el ancho total
+    &.active {
+      background-color: $primary-color;
+      color: white;
+    }
+    &:hover {
+      background-color: $hover-background-color; // Color de hover para el ítem
     }
   }
 }
