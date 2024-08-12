@@ -7,15 +7,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba($primary-color, 0.7); /* Fondo blanco semi-transparente */
+  background: rgba($primary-color, 0.7);
   z-index: 1000; /* Asegura que esté encima de otros elementos */
 
   .loader__circle {
-    border: 6px solid $loader-border-color; /* Borde del círculo con opacidad */
+    border: 6px solid $loader-border-color;
     border-radius: 50%;
-    border-top: 6px solid $loader-border-top-color; /* Color del borde superior para crear el efecto de giro */
-    width: $loader-size; /* Tamaño del círculo */
-    height: $loader-size; /* Tamaño del círculo */
+    border-top: 6px solid $loader-border-top-color; 
+    width: $loader-size; 
+    height: $loader-size; 
     animation: spin 1s linear infinite; /* Animación de giro */
   }
 }

@@ -1,4 +1,3 @@
-// types/CarFeature.ts
 
 export interface CarFeature {
   name: string;

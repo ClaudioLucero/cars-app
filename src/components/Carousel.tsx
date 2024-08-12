@@ -56,8 +56,8 @@ const Carousel: React.FC<CarouselProps> = ({ features }) => {
             <LazyLoadImage
               src={feature.image}
               alt={feature.name}
-              effect="blur" // Puedes cambiar el efecto si prefieres otro
-              placeholderSrc="/path/to/placeholder-image.png" // Opcional: una imagen de marcador de posición
+              effect="blur" 
+              placeholderSrc="/path/to/placeholder-image.png"
             />
             <div className="carousel__card-info">
               <h3>{feature.name}</h3>

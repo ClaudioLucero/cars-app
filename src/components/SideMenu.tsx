@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import texts from '../config/texts'; // Importa el archivo de textos
+import texts from '../config/texts'; 
 import '../styles/index.scss';
 
 interface SideMenuProps {

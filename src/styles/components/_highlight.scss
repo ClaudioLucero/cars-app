@@ -2,20 +2,20 @@
 .highlight {
   display: flex;
   flex-direction: column;
-  gap: $margin-medium; // Reemplaza 16px con la variable
+  gap: $margin-medium; 
 
   &__row {
     display: flex;
     justify-content: space-between;
-    padding: $padding-large; // Reemplaza 42px con la variable
-    gap: $margin-large; // Reemplaza 55px con la variable
+    padding: $padding-large; 
+    gap: $margin-large; 
     flex-wrap: wrap; // Asegura que las columnas se envuelvan en pantallas más pequeñas
 
     & > .highlight__column {
       flex: 1;
       display: flex;
       flex-direction: column;
-      gap: $margin-small; // Reemplaza 8px con la variable
+      gap: $margin-small; 
       min-width: 0; // Permite que las columnas se reduzcan en tamaño si es necesario
     }
   }
@@ -23,28 +23,28 @@
   &__column {
     display: flex;
     flex-direction: column;
-    gap: $margin-small; // Reemplaza 8px con la variable
+    gap: $margin-small; 
 
     img {
       width: 80%;
       height: auto;
-      max-width: $highlight-max-width; // Reemplaza 500px con la variable
-      max-height: $highlight-max-height; // Reemplaza 300px con la variable
+      max-width: $highlight-max-width;
+      max-height: $highlight-max-height;
       object-fit: cover;
-      border-radius: $border-radius; // Reemplaza 4px con la variable
+      border-radius: $border-radius;
     }
 
     h3 {
       font-family: $font-family;
-      font-weight: $font-weight-semibold; // Reemplaza 600 con la variable
-      font-size: $font-size-xlarge; // Reemplaza 20px con la variable
+      font-weight: $font-weight-semibold;
+      font-size: $font-size-xlarge; 
       margin: 0;
     }
 
     .highlight__content {
       font-family: $font-family;
-      font-weight: $font-weight-normal; // Reemplaza 400 con la variable
-      font-size: $font-size-medium; // Reemplaza 16px con la variable
+      font-weight: $font-weight-normal; 
+      font-size: $font-size-medium; 
     }
   }
 }
@@ -54,7 +54,7 @@
   .highlight {
     .highlight__row {
       flex-direction: column;
-      gap: $margin-medium; // Reemplaza 24px con la variable
+      gap: $margin-medium;
 
       & > .highlight__column {
         width: 100%;

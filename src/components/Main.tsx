@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { fetchCars } from '../services/cardService';
-import { Car } from '../types/car'; // Ajusta la ruta según sea necesario
+import { Car } from '../types/car'; 
 import Loader from './Loader';
 import Card from './Card';
-import FilterIcon from '../assets/StayBlack.svg'; // Ajusta la ruta según sea necesario
-import DropDownFilter from './DropDownFilter'; // Importa el nuevo componente
-import DropDownSort from './DropDownSort'; // Importa el nuevo componente
-import texts from '../config/texts'; // Importa el archivo de textos
+import FilterIcon from '../assets/StayBlack.svg'; 
+import DropDownFilter from './DropDownFilter'; 
+import DropDownSort from './DropDownSort'; 
+import texts from '../config/texts'; 
 import '../styles/index.scss';
 
 const Main: React.FC = () => {
@@ -140,7 +140,6 @@ const Main: React.FC = () => {
             className="sort-icon"
             onClick={toggleMenu}
           />
-          {/* Menú desplegable para ordenación */}
           <DropDownSort
             isOpen={menuOpen}
             selectedSort={sortOption}

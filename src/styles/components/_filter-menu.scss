@@ -30,13 +30,13 @@
     background: none;
     cursor: pointer;
     text-align: left; // Alinea el texto a la izquierda
-    box-sizing: border-box; // Incluye padding y border en el ancho total
+    box-sizing: border-box; 
     &.active {
       background-color: $primary-color;
       color: white;
     }
     &:hover {
-      background-color: $hover-background-color; // Color de hover para el ítem
+      background-color: $hover-background-color;
     }
   }
 }

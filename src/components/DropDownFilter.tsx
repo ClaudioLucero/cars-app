@@ -1,6 +1,6 @@
 // src/components/DropdownFilter.tsx
 import React from 'react';
-import texts from '../config/texts'; // Asegúrate de ajustar la ruta si es necesario
+import texts from '../config/texts'; 
 import '../styles/index.scss';
 
 interface DropDownFilterProps {

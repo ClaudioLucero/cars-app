@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css'; // Opcional: puedes usar otros efectos si prefieres
-
+import 'react-lazy-load-image-component/src/effects/blur.css'; 
 import { CarDetail } from '../types/carDetail';
 import Loader from './Loader';
-import Carousel from './Carousel'; // Asegúrate de importar el componente Carousel
+import Carousel from './Carousel'; 
 import Highlight from './Highlight';
 import { fetchCarDetails } from '../services/cardService';
 import '../styles/index.scss';
@@ -62,8 +61,8 @@ const CarDetails: React.FC = () => {
           <LazyLoadImage
             src={car.photo}
             alt={car.name}
-            effect="blur" // Opcional: puedes usar otros efectos si prefieres
-            placeholderSrc="/path/to/placeholder-image.png" // Opcional: una imagen de marcador de posición
+            effect="blur" 
+            placeholderSrc="/path/to/placeholder-image.png" 
             className="lazy-load-image"
           />
         </div>

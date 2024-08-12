@@ -12,9 +12,6 @@
       height: 100%;
       overflow-x: auto;
       scroll-behavior: smooth;
-    //   &::-webkit-scrollbar {
-    //     $scrollbar-width;
-    //   }
       -ms-overflow-style: $scrollbar-width;
       scrollbar-width: $scrollbar-width;
       justify-content: space-evenly;

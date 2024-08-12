@@ -32,7 +32,7 @@ const Card: React.FC<CardProps> = ({ id, name, year, price, thumbnail }) => {
           src={thumbnail}
           alt={name}
           effect="blur"
-          placeholderSrc="/path/to/placeholder-image.png" // Opcional: una imagen de marcador de posición
+          placeholderSrc="/path/to/placeholder-image.png" 
         />
       </div>
     </div>

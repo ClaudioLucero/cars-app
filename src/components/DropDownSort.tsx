@@ -1,7 +1,7 @@
 // src/components/DropDownSort.tsx
 import React from 'react';
-import texts from '../config/texts'; // Asegúrate de ajustar la ruta si es necesario
-import '../styles/index.scss'; // Asegúrate de importar los estilos aquí si no están en el archivo principal
+import texts from '../config/texts'; 
+import '../styles/index.scss';
 
 interface DropDownSortProps {
   isOpen: boolean;
