@@ -1,6 +1,6 @@
 # Aplicación de Autos
 
-Este proyecto fue creado utilizando [Create React App](https://github.com/ClaudioLucero/cars-app.git).
+Este proyecto fue creado utilizando [Create React App]
 
 ## Ejecutar en Local
 
@@ -9,7 +9,7 @@ Para ejecutar el proyecto en tu entorno local, sigue estos pasos:
 1. **Clona el Repositorio**
 
    ```bash
-   git clone https://github.com/tu-usuario/mi-repositorio.git
+   git clone https://github.com/ClaudioLucero/cars-app.git
 
   cd my-cars-app
   npm install
