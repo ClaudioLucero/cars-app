@@ -1,5 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/opacity.css'; 
 import '../styles/index.scss';
 
 interface CardProps {
@@ -26,7 +28,12 @@ const Card: React.FC<CardProps> = ({ id, name, year, price, thumbnail }) => {
         </p>
       </div>
       <div className="card__image">
-        <img src={thumbnail} alt={name} />
+        <LazyLoadImage
+          src={thumbnail}
+          alt={name}
+          effect="blur"
+          placeholderSrc="/path/to/placeholder-image.png" // Opcional: una imagen de marcador de posición
+        />
       </div>
     </div>
   );

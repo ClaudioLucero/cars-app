@@ -13,13 +13,17 @@ const Main: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [filterMenuOpen, setFilterMenuOpen] = useState<boolean>(false);
-  const [selectedFilter, setSelectedFilter] = useState<string>(texts.filter.options.all);
+  const [selectedFilter, setSelectedFilter] = useState<string>(
+    texts.filter.options.all
+  );
   const [sortOption, setSortOption] = useState<string>('Nada');
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://challenge.egodesign.dev/api/models/');
+        const response = await fetch(
+          'https://challenge.egodesign.dev/api/models/'
+        );
         const data = await response.json();
         setCars(data);
       } catch (error) {

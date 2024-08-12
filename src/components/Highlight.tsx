@@ -1,6 +1,8 @@
 import React from 'react';
 import { CarHighlight } from '../types/carDetail';
 import '../styles/index.scss';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css'; // Opcional: puedes usar otros efectos si prefieres
 
 interface HighlightProps {
   highlights: CarHighlight[];
@@ -20,12 +22,22 @@ const Highlight: React.FC<HighlightProps> = ({ highlights }) => {
           />
         </div>
         <div className="highlight__column">
-          <img src={highlights[0].image} alt={highlights[0].title} />
+          <LazyLoadImage
+            src={highlights[0].image}
+            alt={highlights[0].title}
+            effect="blur" // Opcional: puedes usar otros efectos si prefieres
+            placeholderSrc="/path/to/placeholder-image.png" // Opcional: una imagen de marcador de posición
+          />
         </div>
       </div>
       <div className="highlight__row">
         <div className="highlight__column">
-          <img src={highlights[1].image} alt={highlights[1].title} />
+          <LazyLoadImage
+            src={highlights[1].image}
+            alt={highlights[1].title}
+            effect="blur" // Opcional: puedes usar otros efectos si prefieres
+            placeholderSrc="/path/to/placeholder-image.png" // Opcional: una imagen de marcador de posición
+          />
         </div>
         <div className="highlight__column">
           <h3>{highlights[1].title}</h3>

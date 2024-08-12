@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css'; // Opcional: puedes usar otros efectos si prefieres
+
 import { CarDetail } from '../types/carDetail';
 import Loader from './Loader';
 import Carousel from './Carousel'; // Asegúrate de importar el componente Carousel
@@ -35,11 +38,6 @@ const CarDetails: React.FC = () => {
     getCarDetails();
   }, [id, navigate]);
 
-  const extractText = (html: string) => {
-    const doc = new DOMParser().parseFromString(html, 'text/html');
-    return doc.body.textContent || '';
-  };
-
   if (loading) {
     return <Loader />;
   }
@@ -61,14 +59,23 @@ const CarDetails: React.FC = () => {
       <div className="car-details__main">
         {/* Primera columna: Imagen del auto */}
         <div className="car-details__main-image">
-          <img src={car.photo} alt={car.name} />
+          <LazyLoadImage
+            src={car.photo}
+            alt={car.name}
+            effect="blur" // Opcional: puedes usar otros efectos si prefieres
+            placeholderSrc="/path/to/placeholder-image.png" // Opcional: una imagen de marcador de posición
+            className="lazy-load-image"
+          />
         </div>
 
         {/* Segunda columna: Detalles del auto */}
         <div className="car-details__main-info">
           <h1>{car.name}</h1>
           <h2>{car.title}</h2>
-          <p>{extractText(car.description)}</p>
+          <div
+            className="car-details__description"
+            dangerouslySetInnerHTML={{ __html: car.description }}
+          />
         </div>
       </div>
 

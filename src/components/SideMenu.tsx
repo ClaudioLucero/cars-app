@@ -21,7 +21,9 @@ const SideMenu: React.FC<SideMenuProps> = ({ isOpen, onClose }) => {
             <ul>
               <div className="separator"></div>
               <li>
-                <Link to="/home" onClick={onClose}>{texts.menu.modelos}</Link>
+                <Link to="/home" onClick={onClose}>
+                  {texts.menu.modelos}
+                </Link>
               </li>
               <li>
                 <a href="#servicios-y-accesorios">{texts.menu.servicios}</a>
@@ -37,7 +39,9 @@ const SideMenu: React.FC<SideMenuProps> = ({ isOpen, onClose }) => {
                 <a href="#ficha-modelo">{texts.menu.fichaModelo}</a>
               </li>
               <li>
-                <a href="#toyota-mobility-service">{texts.menu.mobilityService}</a>
+                <a href="#toyota-mobility-service">
+                  {texts.menu.mobilityService}
+                </a>
               </li>
               <li>
                 <a href="#toyota-gazoo-racing">{texts.menu.gazooRacing}</a>

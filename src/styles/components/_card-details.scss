@@ -10,8 +10,11 @@
       justify-content: center; // Centra horizontalmente la imagen
       width: 559px; // Ancho de la imagen
       height: 320px; // Altura de la imagen
-      img {
-        height: 80%; // Asegura que la imagen ocupe la altura del contenedor
+      overflow: hidden; // Asegura que nada se desborde del contenedor
+
+      .lazy-load-image {
+        width: 100%; // Ocupa el ancho del contenedor
+        height: 100%; // Ocupa la altura del contenedor
         object-fit: cover; // Ajusta la imagen para cubrir el área
       }
     }
@@ -56,6 +59,7 @@
 
       &-image {
         width: 100%; // La imagen ocupará el ancho completo en pantallas móviles
+        height: auto; // Ajusta la altura automáticamente para mantener la proporción
       }
 
       &-info {

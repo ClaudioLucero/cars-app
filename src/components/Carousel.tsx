@@ -1,6 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
 import '../styles/index.scss';
 import { CarouselProps } from '../types/CarFeature';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css'; // Opcional: puedes usar otros efectos si prefieres
 
 const Carousel: React.FC<CarouselProps> = ({ features }) => {
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -51,7 +53,12 @@ const Carousel: React.FC<CarouselProps> = ({ features }) => {
       <div className="carousel__inner" ref={carouselRef}>
         {features.map((feature, index) => (
           <div key={index} className="carousel__card">
-            <img src={feature.image} alt={feature.name} />
+            <LazyLoadImage
+              src={feature.image}
+              alt={feature.name}
+              effect="blur" // Puedes cambiar el efecto si prefieres otro
+              placeholderSrc="/path/to/placeholder-image.png" // Opcional: una imagen de marcador de posición
+            />
             <div className="carousel__card-info">
               <h3>{feature.name}</h3>
               <p>{feature.description}</p>

@@ -25,7 +25,9 @@ const Header: React.FC = () => {
     <>
       <header className="header">
         <div className="header__logo">
-          <img src={Logo} alt="Logo" />
+          <Link to="/" className={getNavLinkClass('/')}>
+            <img src={Logo} alt="Logo" />
+          </Link>
         </div>
         <nav className="header__nav">
           <ul>
