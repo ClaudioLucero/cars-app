@@ -1,7 +1,7 @@
 import { Car } from '../types/car';
 import { CarDetail } from '../types/carDetail';
 
-// Asegúrate de que la URL de la API esté definida
+
 const API_URL = process.env.REACT_APP_API_URL;
 
 if (!API_URL) {
