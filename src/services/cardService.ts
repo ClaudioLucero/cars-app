@@ -1,6 +1,12 @@
 import { Car } from '../types/car';
 import { CarDetail } from '../types/carDetail';
-const API_URL = 'https://challenge.egodesign.dev/api/models/';
+
+// Asegúrate de que la URL de la API esté definida
+const API_URL = process.env.REACT_APP_API_URL;
+
+if (!API_URL) {
+  throw new Error('API_URL is not defined in the environment variables');
+}
 
 export const fetchCars = async (): Promise<Car[]> => {
   try {
