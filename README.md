@@ -30,7 +30,7 @@ Para configurar la URL de la API en tu proyecto, sigue estos pasos:
 Ejecuta el siguiente comando para iniciar la aplicación en modo desarrollo:
 
 ```bash
-npm start
+npm run start
 
 ## Iniciar el Servidor de Desarrollo
 La aplicación se abrirá en http://localhost:3000.
